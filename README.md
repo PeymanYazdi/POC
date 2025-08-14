@@ -85,4 +85,36 @@ A reusable, anchored modal for guided tours and callouts using Floating UI.
 - Composable "Next" callback for multi-step tours
 - Accessibility: focus trap, aria attributes
 - Portal rendering with scroll lock
+
+## FlowChart
+flowchart TD
+  classDef step fill:#f7f9fc,stroke:#4a90e2,stroke-width:2px,color:#000,rx:6,ry:6
+  classDef decision fill:#fffbe6,stroke:#f5a623,stroke-width:2px,color:#000,rx:6,ry:6
+
+  A([Page / Feature Mounts]):::step --> B([Create Anchor Refs<br/>(refA, refB, refC, ... )]):::step
+  B --> C([Hold Open State<br/>openId = 'a' | 'b' | null]):::step
+  C --> D{Auto-open first once<br/>refs are ready?}:::decision
+  D -- Yes --> E([setOpenId('a')]):::step
+  D -- No --> F([Wait for User Action]):::step
+
+  E --> G([Render CalloutModal A<br/>reference=refA, header/body/CTAs,<br/>dismissible?, onOpenChange]):::step
+  F --> G
+
+  G --> H{User clicks Next?}:::decision
+  G --> I{Esc / Outside Click / Backdrop?}:::decision
+
+  H -- Yes --> J([Optional: scroll nextReference<br/>into view]):::step
+  J --> K([onRequestNext(nextReference)]):::step
+  K --> L{Open next callout?}:::decision
+  L -- Yes --> M([setOpenId('b') → Render CalloutModal B]):::step
+  L -- No --> N([Run other callback<br/>(analytics, focus, etc.)]):::step
+
+  I -- Yes & dismissible --> O([onOpenChange(false, reason)]):::step
+  O --> P([Close current callout only<br/>(no auto-open next)]):::step
+  I -- Not dismissible --> Q([Ignore dismiss, wait for CTA]):::step
+
+  M --> R{Last callout?}:::decision
+  R -- Yes --> S([Provide Done CTA<br/>setOpenId(null)]):::step
+  R -- No --> T([Repeat Next Flow]):::step
+
 ```
