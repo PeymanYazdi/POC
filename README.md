@@ -283,7 +283,7 @@ A reusable, anchored modal for guided tours and callouts using Floating UI.
 
 ## Live Demo
 
-[View on Vercel](https://your-vercel-link.vercel.app)
+[View on Vercel](https://poc-ivory-phi.vercel.app/)
 
 ## Features
 
