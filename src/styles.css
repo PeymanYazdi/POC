@@ -1,0 +1,108 @@
+
+:root {
+  --bg: #0b1020;
+  --fg: #e6e7eb;
+  --panel: #fff;
+  --panel-fg: #111827;
+  --primary: #2563eb;
+  --border: #e5e7eb;
+  --shadow-1: 0 10px 30px rgba(0,0,0,0.18), 0 2px 10px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+}
+
+.container {
+  padding: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1 { margin: 0 0 8px; font-size: 28px; }
+p { color: #cbd5e1; }
+
+.row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+.demo-card {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #2a324a;
+  border-radius: 8px;
+  color: var(--fg);
+}
+
+.btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid #4b5563;
+}
+
+.anchor-card {
+  margin-top: 120px;
+  padding: 16px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+}
+
+.badge {
+  display: inline-block;
+  background: #1f2937;
+  border: 1px solid #374151;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #e5e7eb;
+}
+
+/* Callout panel styling */
+.callout-panel {
+  min-width: 280px;
+  max-width: 420px;
+  background: var(--panel);
+  color: var(--panel-fg);
+  border-radius: 10px;
+  box-shadow: var(--shadow-1);
+  padding: 14px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.callout-header {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.callout-body { font-size: 14px; line-height: 1.55; }
+.callout-footer { display: flex; justify-content: flex-end; margin-top: 12px; gap: 8px; }
+
+.callout-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: white;
+  color: #111827;
+  cursor: pointer;
+}
+.callout-btn.primary {
+  background: var(--primary);
+  color: white;
+  border-color: transparent;
+}
