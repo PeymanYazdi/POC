@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1>Simple Callout Modal (Composable “Next”)</h1>
+      <h1>Callout Modal (Composable “Next”)</h1>
       <p>Each callout is a standalone modal. The parent chooses what to open next via a callback.</p>
 
       <div className="row">
